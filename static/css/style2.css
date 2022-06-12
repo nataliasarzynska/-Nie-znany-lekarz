@@ -1,0 +1,79 @@
+h1 {
+    color: rgb(29, 97, 92);
+}
+
+body {
+    background-color: rgba(127, 255, 212, 0.17);
+}
+
+#container {
+    width: auto;
+    margin-left: 50px;
+    margin-right: auto;
+}
+
+.logo {
+    color: rgb(29, 97, 92);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 30px;
+    letter-spacing: 3px;
+}
+
+.doctors-grid{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 50px;
+}
+
+.doctor-item{
+	display: flex;
+	flex-direction: column;
+	font-family: helvetica;
+}
+
+.doctor-item img{
+	max-width: 100%;
+}
+
+.doctor-item .name{
+	font-size: 20px;
+	font-weight: bold;
+
+	padding-top: 10px;
+}
+
+.doctor-item .expertise{
+	padding-top: 5px;
+}
+
+.doctor-item button{
+	align-self: start;
+	margin-top: 10px;
+	background: black;
+	color: #fff;
+	outline: 0;
+	border: 0;
+	font-weight: bold;
+	padding: 5px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: 0.25s;
+}
+
+.doctor-item button:hover{
+	background: #444;
+}
+
+.doctor-item .fa {
+	font-size: 25px;
+  }
+  
+  .doctor-item .checked {
+	color: orange;
+  }
+
+.doctor-item .heading {
+	font-size: 25px;
+	margin-right: 25px;
+  }
