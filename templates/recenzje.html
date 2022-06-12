@@ -1,0 +1,81 @@
+{% load static %}
+{% static "files" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+        <title>(Nie)znany lekarz</title>
+    </head>
+    <body>
+    
+    {% if user.is_authenticated %}
+
+        <style>
+            [class*="col"] {
+                padding: 1rem;
+            }
+            [class*="row"] {
+                padding-left: 4rem;
+                padding-right: 4rem;
+            }
+            [class*="card-body"] {
+                font-size: large;
+            }
+            [class*="navbar"] {
+                padding: 0.5rem;
+            }
+        </style>
+
+            <div class = "row">
+                <div class = "col">
+                    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #198754;">
+                        <a class="navbar-brand"><h3><i class="bi bi-file-medical"></i> (Nie)znany lekarz</h3></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-item nav-link" href="/twojprofil">Twój profil</a>
+                            <a class="nav-item nav-link" href="/umowwizyte">Umów wizytę</a>
+                            <a class="nav-item nav-link" href="/twojewizyty">Twoje wizyty</a>
+                            <a class="nav-item nav-link" href="/szukajlekarzy">Przeglądaj lekarzy</a>
+                            <a class="nav-item nav-link" href="/dodajrecenzje">Dodaj recenzję</a>
+                            <a class="nav-item nav-link" href="/wykresrecenzji">Ranking</a>
+                            <a class="nav-item nav-link" href="/logout">Wyloguj się</a>
+                        </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+            <div class = "row">
+                <div class = "col">
+                    <h4>Twoja opinia została dodana. Dziękujemy.</h4>
+                </div>
+            </div>
+
+            <div class = "row">
+                <div class = "col">
+                    <div class="alert alert-success" role="alert">
+                        <p>
+                            <strong>Data: </strong>{{review.created_at|date:"Y-m-d"}},
+                            <strong>Ocena: </strong>{{review.rate}}
+                        </p>
+                        {{review.comment}}
+                    </div>
+                </div>
+            </div>
+
+
+    {% else %}
+
+    <br>
+    Nie jesteś zalogowany
+    <a href = "/login">Zaloguj się</a>
+
+    {% endif %}
+    </body>
+    </html>
